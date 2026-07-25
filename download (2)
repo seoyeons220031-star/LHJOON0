@@ -1,6 +1,7 @@
-{
-  "printWidth": 100,
-  "semi": true,
-  "singleQuote": false,
-  "trailingComma": "all"
-}
+import { createFileRoute, redirect } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    throw redirect({ to: "/chats" });
+  },
+});

@@ -1,16 +1,6 @@
-import { QueryClient } from "@tanstack/react-query";
-import { createRouter } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export const getRouter = () => {
-  const queryClient = new QueryClient();
-
-  const router = createRouter({
-    routeTree,
-    context: { queryClient },
-    scrollRestoration: true,
-    defaultPreloadStaleTime: 0,
-  });
-
-  return router;
-};
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
